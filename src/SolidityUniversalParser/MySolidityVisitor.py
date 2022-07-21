@@ -1,7 +1,7 @@
 from src import constants
-from src.resource.antlr4.myParser.SolidityListener import SolidityListener
-from src.resource.antlr4.myParser.SolidityParser import SolidityParser
-from src.resource.antlr4.myParser.SolidityVisitor import SolidityVisitor
+from .SolidityListener import SolidityListener
+from .SolidityParser import SolidityParser
+from .SolidityVisitor import SolidityVisitor
 
 
 class MySolidityVisitor(SolidityVisitor):

@@ -1,6 +1,6 @@
 from antlr4.error.ErrorStrategy import DefaultErrorStrategy
 
-from src.resource.antlr4.myParser.SolidityLexer import SolidityLexer
+from .SolidityLexer import SolidityLexer
 
 
 class MySolidityLexer (SolidityLexer):

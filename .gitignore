@@ -130,3 +130,6 @@ dmypy.json
 
 # Zetbrain env
 .idea
+
+# Mac OS
+.DS_Store

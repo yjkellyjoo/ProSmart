@@ -18,7 +18,7 @@ def manage_args() -> (str, str):
     args = argParser.parse_args()
 
     if args.__contains__('version'):
-        print("v0.1.0")
+        print(const.version)
     else:
         return args.input_path, args.output_path
 

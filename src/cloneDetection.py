@@ -1,7 +1,9 @@
 import hashlib
+import sys
 
 from antlr4 import InputStream, CommonTokenStream, ParseTreeWalker
 
+from src.SolidityUniversalParser.MySolidityListener import MySolidityListener
 from src.SolidityUniversalParser.MySolidityVisitor import MySolidityVisitor, VisitSolidityListener
 from src.SolidityUniversalParser.SolidityLexer import SolidityLexer as MySolidityLexer
 from src.SolidityUniversalParser.SolidityParser import SolidityParser as MySolidityParser
@@ -72,3 +74,18 @@ def abstract(token_list, ids, replace_const):
     return token_list
 
 
+def parse_functions(code) -> (list, list, list):
+    lexer = MySolidityLexer(InputStream(code))
+    parser = MySolidityParser(CommonTokenStream(lexer))
+    sys.setrecursionlimit(10 ** 7)  # prevent python recursion error
+    tree = parser.sourceUnit()
+
+    walker = ParseTreeWalker()
+    listener = MySolidityListener()
+
+    walker.walk(listener, tree)  # listener has the function_strings after it's walked
+    functions = listener.function_strings
+    func_names = listener.function_names
+    contract_names = listener.contract_names
+
+    return functions, func_names, contract_names

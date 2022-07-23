@@ -1,4 +1,4 @@
-# ProSmart: __*Pro*__pagated Vulnerable __*Smart*__ Contracts Code Clone Detection for Solidity
+# ProSmart: *Pro*pagated Vulnerable *Smart* Contracts Code Clone Detection for Solidity
 Using [Solidity-complete-parser](https://github.com/yjkellyjoo/Solidity-complete-parser),
 this python-based tool reads a .sol file, analyzes the received file and returns the code's vulnerability information if detected.
 

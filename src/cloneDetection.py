@@ -74,7 +74,7 @@ def abstract(token_list, ids, replace_const):
     return token_list
 
 
-def parse_functions(code) -> (list, list, list):
+def parse_functions(code) -> (list, list, list, list):
     lexer = MySolidityLexer(InputStream(code))
     parser = MySolidityParser(CommonTokenStream(lexer))
     sys.setrecursionlimit(10 ** 7)  # prevent python recursion error
@@ -86,6 +86,12 @@ def parse_functions(code) -> (list, list, list):
     walker.walk(listener, tree)  # listener has the function_strings after it's walked
     functions = listener.function_strings
     func_names = listener.function_names
+    func_lines = listener.function_lines
     contract_names = listener.contract_names
 
-    return functions, func_names, contract_names
+    return functions, func_names, func_lines, contract_names
+
+
+def build_vdb():
+    #TODO: extract vdb from MySQL as json
+    pass

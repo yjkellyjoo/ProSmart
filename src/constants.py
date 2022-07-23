@@ -5,4 +5,4 @@ eventcall = "EVENTCALL"
 lvar = "VAR"
 
 path_vdb = 'rsrc/vdb.json'
-version = 'v0.1.0'
+version = 'v0.1.1'

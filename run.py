@@ -31,12 +31,12 @@ if __name__ == '__main__':
     vdb = json.load(open(const.path_vdb, 'r'))
 
     # 3. parse functions from input source code
-    input_funcs, input_func_names, input_contract_names = Ccd.parse_functions(open(input_path, 'r').read())
+    input_funcs, input_func_names, input_func_lines, input_contract_names = Ccd.parse_functions(open(input_path, 'r').read())
 
     # 4. compare vdb functions vs parsed functions
     vuln_funcs = [i['Svccd'] for i in vdb]
     detected_funcs = []
-    for function, func_name in zip(input_funcs, input_func_names):
+    for function, func_name, func_line in zip(input_funcs, input_func_names, input_func_lines):
         function = function.strip()
 
         func_hash = None
@@ -48,10 +48,10 @@ if __name__ == '__main__':
             detected_func = dict()
             detected_func['function_name'] = func_name
             detected_func['function_code'] = function
+            detected_func['lines'] = func_line
 
             detected_func['cve_ids'] = list()
             detected_func['vulnerability_types'] = set()
-
             vulns = filter(lambda x: x['Svccd'] == func_hash, vdb)
             for i in vulns:
                 detected_func['cve_ids'].append(i['cve_id'])
@@ -69,4 +69,4 @@ if __name__ == '__main__':
             json.dump(detected_funcs, f)
 
     # 7. return execution terminated message
-    print("Execution terminated succesfully. Check your output path. ")
+    print("Execution terminated successfully. Check your output path. ")

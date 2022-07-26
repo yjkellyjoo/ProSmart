@@ -1,2 +1,2 @@
 path_vdb = 'rsrc/vdb.json'
-version = 'v0.1.1'
+version = 'v0.1.2'

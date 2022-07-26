@@ -1,0 +1,3 @@
+[submodule "src/SolidityCompleteParser"]
+	path = src/SolidityCompleteParser
+	url = https://github.com/yjkellyjoo/Solidity-complete-parser.git

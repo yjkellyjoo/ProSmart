@@ -3,12 +3,12 @@ import sys
 
 from antlr4 import InputStream, CommonTokenStream, ParseTreeWalker
 
-from src.SolidityUniversalParser.MySolidityListener import MySolidityListener
-from src.SolidityUniversalParser.MySolidityVisitor import MySolidityVisitor, VisitSolidityListener
-from src.SolidityUniversalParser.SolidityLexer import SolidityLexer as MySolidityLexer
-from src.SolidityUniversalParser.SolidityParser import SolidityParser as MySolidityParser
+from src.SolidityCompleteParser.MySolidityListener import MySolidityListener
+from src.SolidityCompleteParser.MySolidityVisitor import MySolidityVisitor, VisitSolidityListener
+from src.SolidityCompleteParser.antlr4_generated.SolidityLexer import SolidityLexer as MySolidityLexer
+from src.SolidityCompleteParser.antlr4_generated.SolidityParser import SolidityParser as MySolidityParser
 
-from src import constants as const
+from src.SolidityCompleteParser.rsc import constants as const
 
 
 def run_vccd(code):

@@ -51,13 +51,12 @@ if __name__ == '__main__':
             detected_func['lines'] = func_line
 
             detected_func['cve_ids'] = list()
-            detected_func['vulnerability_types'] = set()
+            detected_func['vulnerability_types'] = list()
             vulns = filter(lambda x: x['Svccd'] == func_hash, vdb)
             for i in vulns:
                 detected_func['cve_ids'].append(i['cve_id'])
-                detected_func['vulnerability_types'].add(i['VulnType'])
+                detected_func['vulnerability_types'].append(i['VulnType'])
 
-            detected_func['vulnerability_types'] = list(detected_func['vulnerability_types'])
             detected_funcs.append(detected_func)
 
     # 6. save output file
